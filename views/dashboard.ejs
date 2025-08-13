@@ -74,7 +74,7 @@
                       <%= posts[i].status %></span>
                 </td>
                 <td>
-                  <%= posts[i].createdAt.split("T")[0] %>
+                  <%= new Date(posts[i].createdAt).toISOString().split("T")[0] %>
                 </td>
                 <td>
                   <%= posts[i].views %>

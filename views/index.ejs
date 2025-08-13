@@ -15,7 +15,7 @@
 <body>
   <div id="wrapper" class="fade-in">
     <!-- Intro -->
-    
+
     <div class="log">
       <% if (user) { %>
         <a class="login" href="/dashboard">Dashboard</a>
@@ -27,14 +27,14 @@
     </div>
     <div id="intro">
       <div class="heading">
-        <img src="images/brandLogo_white.png" alt=""  class="brandLogo">
+        <img src="images/brandLogo_white.png" alt="" class="brandLogo">
       </div>
 
       <p>
         Welcome to <strong style="font-weight: 700;">Inkspire</strong> — where thoughts turn into timeless words.<br />
         Dive into stories, reflections, and ideas that echo beyond the page.<br />
         Crafted with passion, shared with purpose.
-      </p>      
+      </p>
       <div class="arrowdown">
         <img width="90px" src="images/down-arrow-circle-svgrepo-com.svg" alt="downarrow" />
       </div>
@@ -70,7 +70,9 @@
       <div class="post">
         <div class="date-line">
           <span class="line"></span>
-          <span class="date"><%= posts[0].createdAt.split("T")[0] %></span>
+          <span class="date">
+            <%=new Date(posts[0].createdAt).toISOString().split("T")[0] %>
+          </span>
           <span class="line"></span>
         </div>
 
