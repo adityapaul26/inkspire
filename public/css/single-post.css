@@ -1,0 +1,395 @@
+@import url(fontawesome-all.min.css);
+@import url("https://fonts.googleapis.com/css?family=Merriweather:300,700,300italic,700italic|Source+Sans+Pro:900");
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    background-image: url("../images/bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    flex: 1;
+}
+
+/* Post Content */
+.post-container {
+    background-image:url("../images/post-bg.jpg");
+    margin: 50px 212px;
+    padding: 60px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.post-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.post-title {
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    font-size: 48px;
+    font-weight: 900;
+    color: #333;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    letter-spacing: 2px;
+}
+
+.post-meta {
+    font-family: Merriweather, Georgia, serif;
+    color: #666;
+    font-size: 16px;
+    font-style: italic;
+    margin-bottom: 30px;
+}
+
+.post-image {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    border-radius: 10px;
+    margin: 30px auto;
+    display: block;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.post-content {
+    font-family: Merriweather, Georgia, serif;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #333;
+    margin-top: 40px;
+}
+
+.post-content p {
+    margin-bottom: 25px;
+}
+
+.post-content h2 {
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #333;
+    margin: 40px 0 20px 0;
+    letter-spacing: 1px;
+}
+
+.post-content h3 {
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #333;
+    margin: 30px 0 15px 0;
+}
+
+.post-content blockquote {
+    border-left: 4px solid #8d6e63;
+    padding-left: 20px;
+    margin: 30px 0;
+    font-style: italic;
+    color: #666;
+    background-color:url("../images/post-bg.jpg");
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.post-content ul,
+.post-content ol {
+    margin: 20px 0;
+    padding-left: 30px;
+}
+
+.post-content li {
+    margin-bottom: 10px;
+}
+
+.post-content a {
+    color: #8d6e63;
+    text-decoration: none;
+    border-bottom: 1px solid #8d6e63;
+    transition: color 0.3s ease;
+}
+
+.post-content a:hover {
+    color: #5d4037;
+}
+
+hr{
+    border: 1px solid #8d6e63;
+}
+
+.post-image{
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    margin:40px 20px 20px 0px;
+    float: left;
+    height: 350px;
+    width: 350px;
+}
+
+.post-content{
+    font-family:"Karla", sans-serif;
+    font-size: 20px;
+    line-height: 1.8;
+    color: #333;
+    margin-top: 40px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.back-to-home {
+    display: inline-block;
+    font-family: 'Karla', sans-serif;
+    font-size: 20px;
+    color: #007bff; /* Soft blue */
+    text-decoration: none;
+    margin: 20px 0;
+    transition: color 0.2s ease, transform 0.2s ease;
+  }
+  
+  .back-to-home:hover {
+    color: #0056b3; /* Darker blue on hover */
+    transform: translateX(-3px); /* Slight shift left */
+    text-decoration: underline;
+  }
+  
+
+/* Responsive Design - Large Tablets and Small Laptops */
+@media (max-width: 1200px) {
+    .nav {
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+
+    .post-container {
+        margin: 40px 100px;
+        padding: 50px;
+    }
+
+    .footer {
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+
+    .page-heading h1 {
+        font-size: 56px;
+        line-height: 56px;
+        letter-spacing: 6px;
+    }
+
+    .page-subtitle {
+        font-size: 16px;
+    }
+
+    .post-title {
+        font-size: 42px;
+    }
+
+    .post-content {
+        font-size: 17px;
+    }
+}
+
+/* Responsive Design - Tablets */
+@media (max-width: 768px) {
+    #page-header {
+        padding: 60px 40px 40px 40px;
+    }
+
+    .page-heading h1 {
+        font-size: 48px;
+        line-height: 48px;
+        letter-spacing: 5px;
+    }
+
+    .page-subtitle {
+        font-size: 16px;
+    }
+
+    .nav {
+        margin-left: 20px;
+        margin-right: 20px;
+        flex-direction: column;
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .navButtons {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .navButtons li {
+        padding: 15px;
+        font-size: 12px;
+    }
+
+    .post-container {
+        margin: 30px 20px;
+        padding: 30px 25px;
+    }
+
+    .post-title {
+        font-size: 36px;
+        letter-spacing: 1px;
+    }
+
+    .post-meta {
+        font-size: 14px;
+    }
+
+    .post-content {
+        font-size: 16px;
+        line-height: 1.7;
+    }
+
+    .post-content h2 {
+        font-size: 28px;
+    }
+
+    .post-content h3 {
+        font-size: 22px;
+    }
+
+    .footer {
+        margin-left: 20px;
+        margin-right: 20px;
+        padding: 40px 30px 30px 30px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+/* Responsive Design - Mobile Phones */
+@media (max-width: 480px) {
+    #page-header {
+        padding: 40px 20px 30px 20px;
+    }
+
+    .page-heading h1 {
+        font-size: 36px;
+        line-height: 36px;
+        letter-spacing: 4px;
+    }
+
+    .page-subtitle {
+        font-size: 14px;
+    }
+
+    .nav {
+        margin-left: 10px;
+        margin-right: 10px;
+        padding: 15px;
+    }
+
+    .navButtons li {
+        padding: 10px;
+        font-size: 11px;
+    }
+
+    .post-container {
+        margin: 20px 10px;
+        padding: 20px 15px;
+    }
+
+    .post-title {
+        font-size: 28px;
+        letter-spacing: 0.5px;
+    }
+
+    .post-meta {
+        font-size: 13px;
+    }
+
+    .post-content {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    .post-content h2 {
+        font-size: 24px;
+    }
+
+    .post-content h3 {
+        font-size: 20px;
+    }
+
+    .post-content blockquote {
+        padding: 15px;
+        margin: 20px 0;
+    }
+
+    .post-content ul,
+    .post-content ol {
+        padding-left: 20px;
+    }
+
+    .footer {
+        margin-left: 10px;
+        margin-right: 10px;
+        padding: 30px 20px 20px 20px;
+    }
+
+    .footer-section h3 {
+        font-size: 16px;
+    }
+
+    .footer-about p {
+        font-size: 13px;
+    }
+
+    .footer-social {
+        gap: 10px;
+    }
+
+    .footer-social a {
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+    }
+}
+
+/* Responsive Design - Small Mobile Phones */
+@media (max-width: 360px) {
+    .page-heading h1 {
+        font-size: 32px;
+        line-height: 32px;
+        letter-spacing: 3px;
+    }
+
+    .page-subtitle {
+        font-size: 13px;
+    }
+
+    .post-title {
+        font-size: 24px;
+    }
+
+    .post-content {
+        font-size: 14px;
+    }
+
+    .post-content h2 {
+        font-size: 22px;
+    }
+
+    .post-content h3 {
+        font-size: 18px;
+    }
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="css/dashboard.css" />
+</head>
+
+<body>
+  <div class="main-content">
+    <!-- Page Header -->
+    <div id="page-header">
+      <div class="page-heading">
+        <h1>DASHBOARD</h1>
+      </div>
+      <p class="page-subtitle">
+        Manage your blog content and monitor performance
+      </p>
+    </div>
+
+    <!-- Main Content -->
+    <div class="admin-content">
+      <div class="dashboard-header">
+        <h1 class="dashboard-title">Blog Overview</h1>
+        <button class="create-btn" onclick="window.location.href='/admin/create'">
+          + CREATE NEW POST
+        </button>
+      </div>
+
+      <!-- Stats Grid -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">
+            <%= posts.length %>
+          </div>
+          <div class="stat-label">Total Posts</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">
+            <%= totalViews %>
+          </div>
+          <div class="stat-label">Total Views</div>
+        </div>
+      </div>
+
+      <!-- Posts Table -->
+      <div class="posts-section">
+        <h2>Recent Posts</h2>
+        <table class="posts-table">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Status</th>
+              <th>Date</th>
+              <th>Views</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% for (let i=0; i < posts.length; i++) { %>
+              <tr>
+                <td>
+                  <div class="post-title">
+                    <%= posts[i].title %>
+                  </div>
+                  <div class="post-excerpt">
+                    <%= posts[i].content.split(" ").slice(0, 10).join(" ") %>...
+                  </div>
+                </td>
+                <td><span class=" status published">
+                      <%= posts[i].status %></span>
+                </td>
+                <td>
+                  <%= posts[i].createdAt.split("T")[0] %>
+                </td>
+                <td>
+                  <%= posts[i].views %>
+                </td>
+                <td>
+                  <div class="action-buttons">
+                    <a href="/admin/edit/1" class="btn btn-edit">Edit</a>
+                    <a href=" /post/<%=posts[i].slug %>" class="btn btn-view">View</a>
+                    <button class="btn btn-delete" onclick="deletePost(1)">
+                      Delete
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <% } %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <%- include('partials/footer') %>
+</body>
+
+</html>

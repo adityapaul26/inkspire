@@ -1,0 +1,481 @@
+@import url(fontawesome-all.min.css);
+@import url("https://fonts.googleapis.com/css?family=Merriweather:300,700,300italic,700italic|Source+Sans+Pro:900");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-image: url("../images/bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* or contain */
+  background-position: center center;
+  background-attachment: fixed;
+  /* optional: makes the background fixed on scroll */
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+}
+
+/* Header Styles */
+#page-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px 64px 60px 64px;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.page-heading {
+  margin-bottom: 20px;
+}
+
+.page-heading h1 {
+  font-family: "Source Sans Pro", Helvetica, sans-serif;
+  color: rgb(255, 255, 255);
+  font-size: 64px;
+  font-weight: 900;
+  line-height: 64px;
+  letter-spacing: 8px;
+  text-align: center;
+}
+
+.page-subtitle {
+  font-family: Merriweather, Georgia, serif;
+  color: rgb(255, 255, 255);
+  font-size: 18px;
+  font-weight: 300;
+  font-style: italic;
+  text-align: center;
+  opacity: 0.9;
+}
+
+.nav {
+  background-color: #464b52;
+  /* border: 2px solid red; */
+  margin-left: 212px;
+  margin-right: 212px;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+}
+
+.nav ul li {
+  list-style: none;
+}
+
+.navButtons li {
+  font-family: "Source Sans Pro", Helvetica, sans-serif;
+  font-size: 13px;
+  /* border: 2px solid red; */
+  padding: 30px;
+}
+
+.navButtons {
+  /* border: 2px solid green; */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.icon li {
+  padding: 10px;
+}
+
+.parent {
+  display: grid;
+  margin-left: 212px;
+  margin-right: 212px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 710px 710px;
+}
+
+.card {
+  border: 2px solid red;
+}
+
+.card img {
+  height: 50%;
+  width: 80%;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 50px;
+}
+
+.card img {
+  height: 50%;
+  width: 80%;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 50px;
+}
+
+.card {
+  position: relative;
+  background-color: #ffffff;
+  border: 2px solid lightgray;
+}
+
+.card-content h3 {
+  text-align: center;
+  font-family: "Source Sans Pro", Helvetica, sans-serif;
+  font-size: 28px;
+  line-height: 36px;
+}
+
+.card-content p {
+  text-align: center;
+  font-family: Merriweather, Georgia, serif;
+  font-size: 16px;
+  line-height: 28px;
+}
+
+.card-content a {
+  position: absolute;
+  text-decoration: none;
+  font-family: "Source Sans Pro", Helvetica, sans-serif;
+  color: rgb(33, 41, 49);
+  margin: 20px 40px;
+  padding: 20px 40px;
+  border: 2px solid black;
+  text-align: center;
+  margin: 30px;
+  top: 70%;
+  left: 30%;
+}
+
+/*footer css*/
+.footer {
+  background-color: #2a2f36;
+  color: #ffffff;
+  margin-left: 212px;
+  margin-right: 212px;
+  padding: 60px 50px 40px 50px;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 40px;
+}
+
+.footer-section h3 {
+  font-family: "Source Sans Pro", Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  margin-bottom: 25px;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.footer-about p {
+  font-family: Merriweather, Georgia, serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #b8bcc2;
+  margin-bottom: 20px;
+}
+
+.footer-links ul {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  font-family: Merriweather, Georgia, serif;
+  font-size: 14px;
+  color: #b8bcc2;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: #ffffff;
+}
+
+.footer-contact p {
+  font-family: Merriweather, Georgia, serif;
+  font-size: 14px;
+  color: #b8bcc2;
+  margin-bottom: 10px;
+}
+
+.footer-social {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.footer-social a {
+  width: 35px;
+  height: 35px;
+  background-color: #464b52;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #b8bcc2;
+  font-size: 16px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.footer-social a:hover {
+  background-color: #ffffff;
+  color: #2a2f36;
+}
+
+.footer-bottom {
+  border-top: 1px solid #464b52;
+  padding-top: 30px;
+  text-align: center;
+}
+
+.footer-bottom p {
+  font-family: Merriweather, Georgia, serif;
+  font-size: 12px;
+  color: #8b9199;
+  letter-spacing: 1px;
+}
+
+.footer-bottom a {
+  color: #b8bcc2;
+  text-decoration: none;
+}
+
+.footer-bottom a:hover {
+  color: #ffffff;
+}
+
+.navButtons a{
+  text-decoration: none;
+  color: white;
+}
+
+/* Responsive Design - Large Tablets and Small Laptops */
+@media (max-width: 1200px) {
+  .nav {
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+
+  .parent {
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+
+  .footer {
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+
+  .page-heading h1 {
+    font-size: 56px;
+    line-height: 56px;
+    letter-spacing: 6px;
+  }
+
+  .page-subtitle {
+    font-size: 16px;
+  }
+}
+
+/* Responsive Design - Tablets */
+@media (max-width: 768px) {
+  #page-header {
+    padding: 60px 40px 40px 40px;
+  }
+
+  .page-heading h1 {
+    font-size: 48px;
+    line-height: 48px;
+    letter-spacing: 5px;
+  }
+
+  .page-subtitle {
+    font-size: 16px;
+  }
+
+  .nav {
+    margin-left: 20px;
+    margin-right: 20px;
+    flex-direction: column;
+    padding: 20px;
+    gap: 15px;
+  }
+
+  .navButtons {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .navButtons li {
+    padding: 15px;
+    font-size: 12px;
+  }
+
+  .parent {
+    margin-left: 20px;
+    margin-right: 20px;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 20px;
+  }
+
+  .card {
+    height: auto;
+    min-height: 500px;
+  }
+
+  .card img {
+    width: 90%;
+    margin-left: 25px;
+    margin-right: 25px;
+    height: auto;
+  }
+
+  .card-content a {
+    position: relative;
+    top: auto;
+    left: auto;
+    display: inline-block;
+    margin: 20px auto;
+  }
+
+  .footer {
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 40px 30px 30px 30px;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+/* Responsive Design - Mobile Phones */
+@media (max-width: 480px) {
+  #page-header {
+    padding: 40px 20px 30px 20px;
+  }
+
+  .page-heading h1 {
+    font-size: 36px;
+    line-height: 36px;
+    letter-spacing: 4px;
+  }
+
+  .page-subtitle {
+    font-size: 14px;
+  }
+
+  .nav {
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 15px;
+  }
+
+  .navButtons li {
+    padding: 10px;
+    font-size: 11px;
+  }
+
+  .parent {
+    margin-left: 10px;
+    margin-right: 10px;
+    gap: 15px;
+  }
+
+  .card {
+    min-height: 450px;
+  }
+
+  .card img {
+    width: 95%;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .card-content h3 {
+    font-size: 22px;
+    line-height: 28px;
+  }
+
+  .card-content p {
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  .card-content a {
+    padding: 15px 25px;
+    font-size: 12px;
+  }
+
+  .footer {
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 30px 20px 20px 20px;
+  }
+
+  .footer-section h3 {
+    font-size: 16px;
+  }
+
+  .footer-about p {
+    font-size: 13px;
+  }
+
+  .footer-social {
+    gap: 10px;
+  }
+
+  .footer-social a {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+  }
+}
+
+/* Responsive Design - Small Mobile Phones */
+@media (max-width: 360px) {
+  .page-heading h1 {
+    font-size: 32px;
+    line-height: 32px;
+    letter-spacing: 3px;
+  }
+
+  .page-subtitle {
+    font-size: 13px;
+  }
+
+  .card-content h3 {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .card-content a {
+    padding: 12px 20px;
+    font-size: 11px;
+  }
+}

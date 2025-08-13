@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All posts</title>
+  <link rel="stylesheet" href="css/all-posts.css" />
+</head>
+
+<body>
+  <div class="main-content">
+    <!-- Page Header -->
+    <div id="page-header">
+      <div class="page-heading">
+        <h1>ALL POSTS</h1>
+      </div>
+      <p class="page-subtitle">
+        Discover stories, insights, and ideas from our archive
+      </p>
+    </div>
+
+    <nav class="nav">
+      <ul class="navButtons">
+        <li><a href="/">HOME</a></li>
+        <li><a href="/create-post">CREATE POST</a></li>
+      </ul>
+      <ul class="icon">
+        <li>
+          <img width="30px" src="images/twitter-svgrepo-com.svg" alt="" />
+        </li>
+        <li>
+          <img width="30px" src="images/facebook-svgrepo-com.svg" alt="" />
+        </li>
+        <li>
+          <img width="30px" src="images/instagram-svgrepo-com.svg" alt="" />
+        </li>
+        <li>
+          <img width="30px" src="images/github-svgrepo-com.svg" alt="" />
+        </li>
+      </ul>
+    </nav>
+
+    <div class="parent">
+      <% post.forEach(post=> { %>
+        <div class="card">
+          <img src="<%= post.imageUrl %>" alt="Blog Image" />
+          <div class="card-content">
+            <h3>
+              <%= post.title %>
+            </h3>
+            <p>
+              <%= post.content.split(" ").slice(0, 10).join(" ") %>...
+            </p>
+            <a href=" /post/<%=post.slug %>">Read More</a>
+          </div>
+        </div>
+        <% }); %>
+    </div>
+  </div>
+  <%- include('partials/footer') %>
+    <script src="../public/js/posts.js"></script>
+</body>
+</html>

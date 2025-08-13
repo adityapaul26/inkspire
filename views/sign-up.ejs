@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up - Inkspire</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:300,700,300italic,700italic&family=Source+Sans+Pro:wght@900&display=swap" rel="stylesheet">
+  <style>
+    /* fonts & reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+      font-family: 'Merriweather', Georgia, serif;
+      background: #1b1f22;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .signup-container {
+      background: #fff;
+      border-radius: 8px;
+      padding: 40px;
+      max-width: 400px;
+      width: 100%;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .logo h1 {
+      font-family: 'Source Sans Pro', sans-serif;
+      font-size: 28px;
+      letter-spacing: 4px;
+      color: #1b1f22;
+    }
+
+    .logo p {
+      font-style: italic;
+      font-size: 14px;
+      color: #777;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    label {
+      font-size: 13px;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-family: 'Source Sans Pro', sans-serif;
+      margin-bottom: 6px;
+      display: block;
+      color: #1b1f22;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    input:focus {
+      border-color: #1b1f22;
+      outline: none;
+    }
+
+    .password-toggle {
+      float: right;
+      margin-top: -28px;
+      margin-right: 10px;
+      font-size: 14px;
+      color: #555;
+      cursor: pointer;
+    }
+
+    .terms-agreement {
+      display: flex;
+      gap: 10px;
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+
+    .terms-agreement label {
+      font-weight: normal;
+      font-style: italic;
+      color: #555;
+    }
+
+    .terms-agreement a {
+      color: #1b1f22;
+      text-decoration: underline;
+    }
+
+    button[type="submit"] {
+      padding: 14px;
+      background: #1b1f22;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    .message {
+      padding: 10px;
+      margin-bottom: 15px;
+      font-size: 14px;
+      border-radius: 4px;
+      display: none;
+    }
+
+    .message.error {
+      background-color: #ffe6e6;
+      color: #c62828;
+    }
+
+    .login-link {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    .login-link a {
+      color: #1b1f22;
+      text-decoration: none;
+      font-style: italic;
+    }
+
+    .login-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="signup-container">
+    <div class="logo">
+      <h1>INKSPIRE</h1>
+      <p>Start your journey of expression</p>
+    </div>
+
+    <div id="message" class="message error"></div>
+
+    <form method="POST" action="/signup" id="signupForm">
+      <div class="form-group">
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" name="fullname" placeholder="Your name" required />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required />
+      </div>
+
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" placeholder="Choose a username" required />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Create a password" required />
+        <span class="password-toggle" onclick="togglePassword('password')">👁️</span>
+      </div>
+
+      <div class="form-group">
+        <label for="confirm-password">Confirm Password</label>
+        <input type="password" id="confirm-password" name="confirm-password" placeholder="Re-enter password" required />
+        <span class="password-toggle" onclick="togglePassword('confirm-password')">👁️</span>
+      </div>
+
+      <div class="terms-agreement">
+        <input type="checkbox" id="terms" required />
+        <label for="terms">
+          I agree to the <a href="#">Terms</a> and <a href="#">Privacy Policy</a>
+        </label>
+      </div>
+
+      <button type="submit">Create Account</button>
+    </form>
+
+    <div class="login-link">
+      <p>Already have an account? <a href="/login">Sign In</a></p>
+    </div>
+  </div>
+
+  <script>
+    // Password show/hide toggle
+    function togglePassword(id) {
+      const input = document.getElementById(id);
+      input.type = input.type === "password" ? "text" : "password";
+    }
+
+    // Form validation
+    document.getElementById("signupForm").addEventListener("submit", function (e) {
+      const password = document.getElementById("password").value;
+      const confirm = document.getElementById("confirm-password").value;
+      const msg = document.getElementById("message");
+
+      if (password !== confirm) {
+        e.preventDefault();
+        msg.textContent = "Passwords do not match.";
+        msg.style.display = "block";
+      }
+    });
+  </script>
+</body>
+
+</html>

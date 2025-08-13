@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Inkspire</title>
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="css/index.css" />
+  <style type="text/tailwindcss"></style>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body>
+  <div id="wrapper" class="fade-in">
+    <!-- Intro -->
+    
+    <div class="log">
+      <% if (user) { %>
+        <a class="login" href="/dashboard">Dashboard</a>
+        <a class="login" href="/logout">Logout</a>
+        <% } else { %>
+          <a class="login" href="/login">Login</a>
+          <a class="login" href="/signup">Signup</a>
+          <% } %>
+    </div>
+    <div id="intro">
+      <div class="heading">
+        <img src="images/brandLogo_white.png" alt=""  class="brandLogo">
+      </div>
+
+      <p>
+        Welcome to <strong style="font-weight: 700;">Inkspire</strong> — where thoughts turn into timeless words.<br />
+        Dive into stories, reflections, and ideas that echo beyond the page.<br />
+        Crafted with passion, shared with purpose.
+      </p>      
+      <div class="arrowdown">
+        <img width="90px" src="images/down-arrow-circle-svgrepo-com.svg" alt="downarrow" />
+      </div>
+      <header id="header">
+        <a href="index.html" class="logo">INKSPIRE</a>
+      </header>
+    </div>
+
+    <nav class="nav">
+      <ul class="navButtons">
+        <li>THIS IS MASSIVELY</li>
+        <li><a href="/posts">ALL POSTS</a></li>
+        <li><a href="/dashboard">DASHBOARD</a></li>
+      </ul>
+      <ul class="icon">
+        <li>
+          <img width="30px" src="images/twitter-svgrepo-com.svg" alt="" />
+        </li>
+        <li>
+          <img width="30px" src="images/facebook-svgrepo-com.svg" alt="" />
+        </li>
+        <li>
+          <img width="30px" src="images/instagram-svgrepo-com.svg" alt="" />
+        </li>
+        <li>
+          <img width="30px" src="images/github-svgrepo-com.svg" alt="" />
+        </li>
+      </ul>
+    </nav>
+
+    <% if (posts && posts.length> 0) { %>
+      <!-- Featured Post (First post) -->
+      <div class="post">
+        <div class="date-line">
+          <span class="line"></span>
+          <span class="date"><%= posts[0].createdAt.split("T")[0] %></span>
+          <span class="line"></span>
+        </div>
+
+        <div class="main">
+          <div class="post-heading">
+            <h1>
+              <%= posts[0].title %>
+            </h1>
+          </div>
+
+          <p class="content">
+            <%= posts[0].content.split(" ").slice(0, 10).join(" ") %>...
+          </p>
+
+        <img height=" 500px" width="700px" src="<%= posts[0].imageUrl %>" alt="" class="post-img" />
+
+          <header id="full-story">
+            <a href="/post/<%= posts[0].slug %>" class="logo">Read More</a>
+          </header>
+        </div>
+      </div>
+
+      <!-- Other Posts as Cards -->
+      <div class="parent">
+        <% for (let i=1; i < posts.length; i++) { %>
+          <div class="card">
+            <img src="<%= posts[i].imageUrl %>" alt="Blog Image" />
+            <div class="card-content">
+              <h3>
+                <%= posts[i].title %>
+              </h3>
+              <p>
+                <%= posts[i].content.split(" ").slice(0, 10).join(" ") %>...
+              </p>
+        <a href=" /post/<%=posts[i].slug %>" class="read-more">Read More</a>
+            </div>
+          </div>
+          <% } %>
+      </div>
+      <% } else { %>
+        <div class="post">
+          <div class="main">
+            <div class="post-heading">
+              <h1>No Posts Available</h1>
+            </div>
+            <p class="content">
+              No blog posts are currently available. Please check back later!
+            </p>
+          </div>
+        </div>
+        <% } %>
+
+          <footer class="footer">
+            <div class="footer-content">
+              <div class="footer-section footer-about">
+                <h3>About Massively</h3>
+                <p>
+                  A clean, modern and fully responsive site template designed for
+                  storytelling and content creation. Built with HTML5 and CSS3,
+                  perfect for bloggers, writers, and creative professionals.
+                </p>
+                <p>
+                  Share your stories, showcase your work, and connect with your
+                  audience through beautiful, engaging design.
+                </p>
+                <div class="footer-social">
+                  <a href="#"><img width="20px" src="images/twitter-svgrepo-com.svg" alt="Twitter" /></a>
+                  <a href="#"><img width="20px" src="images/facebook-svgrepo-com.svg" alt="Facebook" /></a>
+                  <a href="#"><img width="20px" src="images/instagram-svgrepo-com.svg" alt="Instagram" /></a>
+                  <a href="#"><img width="20px" src="images/github-svgrepo-com.svg" alt="GitHub" /></a>
+                </div>
+              </div>
+
+              <div class="footer-section footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                  <li><a href="#">Home</a></li>
+                  <li><a href="#">About</a></li>
+                  <li><a href="#">Blog</a></li>
+                  <li><a href="#">Contact</a></li>
+                  <li><a href="#">Privacy Policy</a></li>
+                  <li><a href="#">Terms of Service</a></li>
+                </ul>
+              </div>
+
+              <div class="footer-section footer-contact">
+                <h3>Get In Touch</h3>
+                <p><strong>Email:</strong><br />hello@massively.com</p>
+                <p>
+                  <strong>Address:</strong><br />123 Design Street<br />Creative City,
+                  CC 12345
+                </p>
+                <p><strong>Phone:</strong><br />+1 (555) 123-4567</p>
+              </div>
+            </div>
+
+            <div class="footer-bottom">
+              <p>
+                &copy; 2024 Massively. Design by
+                <a href="https://html5up.net">HTML5 UP</a>. All rights reserved.
+              </p>
+            </div>
+          </footer>
+          <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> -->
+</body>
+
+</html>

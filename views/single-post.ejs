@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>
+    <%= post.title %>
+  </title>
+  <link rel="stylesheet" href="/css/single-post.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cascadia+Code:ital,wght@0,200..700;1,200..700&family=Caveat:wght@400..700&family=Italiana&family=Karla:ital,wght@0,200..800;1,200..800&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="post-container">
+    <h1 class="post-title">
+      <%= post.title %>
+    </h1>
+    <hr>
+    <img src="<%= post.imageUrl %>" alt="Post Image" style="max-width: 100%; height: auto;" class="post-image">
+    <p class="post-content">
+      <%= post.content %>
+    </p>
+
+    <a href="/" class="back-to-home">← Back to Home</a>
+  </div>
+</body>
+
+</html>

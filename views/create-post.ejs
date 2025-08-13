@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Post</title>
+  <link rel="stylesheet" href="/css/create-post.css" />
+</head>
+
+<body>
+  <div class="main-content">
+    <!-- Page Header -->
+    <div id="page-header">
+      <div class="page-heading">
+        <h1>CREATE POST</h1>
+      </div>
+      <p class="page-subtitle">
+        Share your thoughts with the world
+      </p>
+      <!-- Main Content -->
+      <div class="create-content">
+        <div class="page-header">
+          <h1 class="page-title">New Post</h1>
+          <div class="action-buttons">
+            <button type="button" class="btn btn-outline" onclick="previewPost()">👁️ Preview</button>
+            <button type="submit" form="postForm" class="btn btn-primary">🚀 Publish</button>
+          </div>
+        </div>
+
+        <form id="postForm" method="POST" action="/create-post" enctype="multipart/form-data">
+          <div class="form-container">
+            <!-- Title -->
+            <div class="form-group">
+              <label for="title">Post Title</label>
+              <input type="text" id="title" name="title" placeholder="Enter an engaging title..." required>
+            </div>
+
+            <!-- Featured Image -->
+            <div class="form-group">
+              <label>Featured Image</label>
+              <div class="image-upload" id="imageUpload" onclick="document.getElementById('imageInput').click()">
+                <input type="file" id="imageInput" name="image" accept="image/*" style="display: none;"
+                  onchange="handleImageUpload(event)">
+                <div class="upload-icon">📸</div>
+                <div class="upload-text">Upload Featured Image</div>
+                <div class="upload-subtext">Click to browse or drag and drop</div>
+                <div id="imagePreviewContainer" style="display: none;"></div>
+              </div>
+              <input type="hidden" id="imageUrl" name="imageUrl" value="/images/bg.jpg">
+            </div>
+
+            <!-- Content -->
+            <div class="form-group">
+              <label for="content">Content</label>
+              <textarea id="content" name="content" placeholder="Start writing your amazing content here..."
+                required></textarea>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Handle image upload
+    function handleImageUpload(event) {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          const imageUrl = e.target.result;
+          document.getElementById('imageUrl').value = imageUrl;
+
+          // Show preview
+          const previewContainer = document.getElementById('imagePreviewContainer');
+          previewContainer.innerHTML = `
+            <div class="image-preview-container">
+              <img src="${imageUrl}" alt="Preview" class="image-preview">
+              <button type="button" class="remove-image" onclick="removeImage()">×</button>
+            </div>
+          `;
+          previewContainer.style.display = 'block';
+
+          // Hide upload text
+          const uploadText = document.querySelector('.upload-text');
+          const uploadSubtext = document.querySelector('.upload-subtext');
+          const uploadIcon = document.querySelector('.upload-icon');
+          if (uploadText) uploadText.style.display = 'none';
+          if (uploadSubtext) uploadSubtext.style.display = 'none';
+          if (uploadIcon) uploadIcon.style.display = 'none';
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+
+    // Remove image
+    function removeImage() {
+      document.getElementById('imageInput').value = '';
+      document.getElementById('imageUrl').value = '/images/bg.jpg';
+      document.getElementById('imagePreviewContainer').style.display = 'none';
+
+      // Show upload text again
+      const uploadText = document.querySelector('.upload-text');
+      const uploadSubtext = document.querySelector('.upload-subtext');
+      const uploadIcon = document.querySelector('.upload-icon');
+      if (uploadText) uploadText.style.display = 'block';
+      if (uploadSubtext) uploadSubtext.style.display = 'block';
+      if (uploadIcon) uploadIcon.style.display = 'block';
+    }
+
+    // Preview post
+    function previewPost() {
+      const title = document.getElementById('title').value;
+      const content = document.getElementById('content').value;
+
+      if (!title || !content) {
+        alert('Please fill in both title and content before previewing.');
+        return;
+      }
+
+      // Create preview in a new window
+      const previewWindow = window.open('', '_blank');
+      previewWindow.document.write(`
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <title>${title} - Preview</title>
+          <style>
+            body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+            h1 { color: #5d4037; }
+            .content { line-height: 1.6; }
+          </style>
+        </head>
+        <body>
+          <h1>${title}</h1>
+          <div class="content">${content.replace(/\n/g, '<br>')}</div>
+        </body>
+        </html>
+      `);
+      previewWindow.document.close();
+    }
+
+    // Form validation
+    document.getElementById('postForm').addEventListener('submit', function (e) {
+      const title = document.getElementById('title').value.trim();
+      const content = document.getElementById('content').value.trim();
+
+      if (!title || !content) {
+        e.preventDefault();
+        alert('Please fill in both title and content before publishing.');
+        return false;
+      }
+
+      // Show loading state
+      const submitBtn = document.querySelector('button[type="submit"]');
+      submitBtn.classList.add('loading');
+      submitBtn.textContent = 'Publishing...';
+    });
+
+    // Auto-save functionality (optional)
+    let autoSaveTimer;
+    function autoSave() {
+      const title = document.getElementById('title').value;
+      const content = document.getElementById('content').value;
+
+      if (title || content) {
+        localStorage.setItem('postDraft', JSON.stringify({ title, content }));
+        showAutoSaveIndicator();
+      }
+    }
+
+    function showAutoSaveIndicator() {
+      const indicator = document.createElement('div');
+      indicator.className = 'autosave-indicator';
+      indicator.textContent = 'Draft saved';
+      document.body.appendChild(indicator);
+
+      setTimeout(() => {
+        indicator.classList.add('show');
+      }, 100);
+
+      setTimeout(() => {
+        indicator.classList.remove('show');
+        setTimeout(() => {
+          document.body.removeChild(indicator);
+        }, 300);
+      }, 2000);
+    }
+
+    // Auto-save every 30 seconds
+    document.addEventListener('input', function () {
+      clearTimeout(autoSaveTimer);
+      autoSaveTimer = setTimeout(autoSave, 30000);
+    });
+
+    // Load draft on page load
+    window.addEventListener('load', function () {
+      const draft = localStorage.getItem('postDraft');
+      if (draft) {
+        const { title, content } = JSON.parse(draft);
+        if (title) document.getElementById('title').value = title;
+        if (content) document.getElementById('content').value = content;
+      }
+    });
+  </script>
+</body>
+
+</html>

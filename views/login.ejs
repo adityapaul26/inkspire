@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Massively</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Merriweather:300,700,300italic,700italic|Source+Sans+Pro:900");
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            font-family: Merriweather, Georgia, serif;
+        }
+
+        body {
+            background: #1b1f22;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .login-container {
+            position: relative;
+            z-index: 1;
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 40px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo h1 {
+            font-family: "Source Sans Pro", Helvetica, sans-serif;
+            font-size: 32px;
+            font-weight: 900;
+            letter-spacing: 4px;
+            color: #1b1f22;
+            margin-bottom: 8px;
+        }
+
+        .logo p {
+            font-family: Merriweather, Georgia, serif;
+            font-size: 14px;
+            color: #666;
+            font-style: italic;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            font-family: "Source Sans Pro", Helvetica, sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            color: #1b1f22;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: Merriweather, Georgia, serif;
+            font-size: 16px;
+            background: #fff;
+            transition: border-color 0.3s ease;
+            outline: none;
+        }
+
+        .form-group input:focus {
+            border-color: #1b1f22;
+        }
+
+        .form-group input::placeholder {
+            color: #999;
+            font-style: italic;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #666;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .password-toggle:hover {
+            color: #1b1f22;
+        }
+
+        .remember-forgot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .remember-me input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            accent-color: #1b1f22;
+        }
+
+        .remember-me label {
+            font-family: Merriweather, Georgia, serif;
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+            text-transform: none;
+            letter-spacing: normal;
+            font-weight: normal;
+        }
+
+        .forgot-password {
+            font-family: Merriweather, Georgia, serif;
+            font-size: 14px;
+            color: #1b1f22;
+            text-decoration: none;
+            font-style: italic;
+            transition: color 0.3s ease;
+        }
+
+        .forgot-password:hover {
+            color: #666;
+            text-decoration: underline;
+        }
+
+        .login-btn {
+            width: 100%;
+            background: #1b1f22;
+            color: white;
+            padding: 14px;
+            border: none;
+            border-radius: 4px;
+            font-family: "Source Sans Pro", Helvetica, sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-btn:hover {
+            background: #333;
+        }
+
+        .login-btn:active {
+            background: #000;
+        }
+
+        .divider {
+            text-align: center;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: #ddd;
+        }
+
+        .divider span {
+            background: #fff;
+            padding: 0 15px;
+            font-family: Merriweather, Georgia, serif;
+            font-size: 14px;
+            color: #666;
+            font-style: italic;
+        }
+
+        .social-login {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-btn {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-family: "Source Sans Pro", Helvetica, sans-serif;
+            font-size: 12px;
+            color: #666;
+            text-decoration: none;
+        }
+
+        .social-btn:hover {
+            background: #f5f5f5;
+            border-color: #1b1f22;
+        }
+
+        .back-to-site {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+        }
+
+        .back-to-site a {
+            font-family: Merriweather, Georgia, serif;
+            font-size: 14px;
+            color: #1b1f22;
+            text-decoration: none;
+            font-style: italic;
+            transition: color 0.3s ease;
+        }
+
+        .back-to-site a:hover {
+            color: #666;
+            text-decoration: underline;
+        }
+
+        /* Error/Success Messages */
+        .message {
+            padding: 12px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            font-family: Merriweather, Georgia, serif;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .message.error {
+            background: #ffebee;
+            border: 1px solid #ffcdd2;
+            color: #c62828;
+        }
+
+        .message.success {
+            background: #e8f5e8;
+            border: 1px solid #c8e6c9;
+            color: #2e7d32;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 480px) {
+            .login-container {
+                margin: 20px;
+                padding: 30px 25px;
+            }
+
+            .logo h1 {
+                font-size: 24px;
+                letter-spacing: 2px;
+            }
+
+            .social-login {
+                flex-direction: column;
+            }
+        }
+
+        /* Loading State */
+        .login-btn.loading {
+            pointer-events: none;
+            opacity: 0.7;
+        }
+
+        .login-btn.loading::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 16px;
+            height: 16px;
+            margin: -8px 0 0 -8px;
+            border: 2px solid transparent;
+            border-top: 2px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-container">
+        <div class="logo">
+            <h1>MASSIVELY</h1>
+            <p>Login to your account</p>
+        </div>
+
+        <!-- Error/Success Messages (hidden by default) -->
+        <div id="message" class="message" style="display: none;"></div>
+
+        <form method="POST" action="/login">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                <span class="password-toggle" onclick="togglePassword()">👁️</span>
+            </div>
+
+            <div class="remember-forgot">
+                <div class="remember-me">
+                    <input type="checkbox" id="remember" name="remember">
+                    <label for="remember">Remember me</label>
+                </div>
+                <a href="#" class="forgot-password">Forgot password?</a>
+            </div>
+
+            <button type="submit" class="login-btn" id="loginBtn">
+                Sign In
+            </button>
+        </form>
+
+        <div class="divider">
+            <span>or continue with</span>
+        </div>
+
+        <div class="social-login">
+            <a href="#" class="social-btn" onclick="socialLogin('google')">
+                <span>🔍</span>
+                Google
+            </a>
+            <a href="#" class="social-btn" onclick="socialLogin('github')">
+                <span>⚡</span>
+                GitHub
+            </a>
+        </div>
+
+        <div class="back-to-site">
+            <a href="/">← Back to website</a>
+        </div>
+    </div>
+
+    <script>
+        // Password toggle functionality
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const toggleIcon = document.querySelector('.password-toggle');
+
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleIcon.textContent = '🙈';
+            } else {
+                passwordInput.type = 'password';
+                toggleIcon.textContent = '👁️';
+            }
+        }
+
+        // Social login simulation
+        function socialLogin(provider) {
+            alert(`${provider.charAt(0).toUpperCase() + provider.slice(1)} login would be implemented here.`);
+        }
+    </script>
+</body>
+
+</html>
