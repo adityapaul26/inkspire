@@ -5,7 +5,7 @@ const path = require("path");
 const multer = require("multer");
 const bcrypt = require("bcryptjs");
 const session = require("express-session");
-require("./config/db"); // Auto-connects when imported
+const connectDB = require("./config/db"); // Import the function
 const Post = require("./models/Post");
 const User = require("./models/User");
 const dotenv = require('dotenv');
@@ -15,6 +15,9 @@ const { cloudinary } = require('./config/cloudinary');
 
 // Load environment variables
 dotenv.config();
+
+// Connect to MongoDB
+connectDB();
 
 // Validate required environment variables
 if (!process.env.JWT_SECRET) {
@@ -80,7 +83,7 @@ const storage = multer.memoryStorage();
 const upload = multer({
   storage: storage,
   limits: {
-    fileSize: 1 * 1024 * 1024, // 10MB limit
+    fileSize: 10 * 1024 * 1024, // 10MB limit
   },
   fileFilter: (req, file, cb) => {
     if (file.mimetype.startsWith("image/")) {
