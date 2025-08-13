@@ -193,16 +193,6 @@
       clearTimeout(autoSaveTimer);
       autoSaveTimer = setTimeout(autoSave, 30000);
     });
-
-    // Load draft on page load
-    window.addEventListener('load', function () {
-      const draft = localStorage.getItem('postDraft');
-      if (draft) {
-        const { title, content } = JSON.parse(draft);
-        if (title) document.getElementById('title').value = title;
-        if (content) document.getElementById('content').value = content;
-      }
-    });
   </script>
 </body>
 

@@ -11,7 +11,7 @@ const User = require("./models/User");
 const dotenv = require('dotenv');
 const jwt = require('jsonwebtoken');
 const cookieparser = require('cookie-parser');
-const { cloudinary } = require('./config/cloudinary');
+const { v2: cloudinary } = require('cloudinary');
 
 // Load environment variables
 dotenv.config();
@@ -19,9 +19,21 @@ dotenv.config();
 // Connect to MongoDB
 connectDB();
 
+// Configure Cloudinary
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
+
 // Validate required environment variables
 if (!process.env.JWT_SECRET) {
   console.error('JWT_SECRET is required in environment variables');
+  process.exit(1);
+}
+
+if (!process.env.CLOUDINARY_CLOUD_NAME || !process.env.CLOUDINARY_API_KEY || !process.env.CLOUDINARY_API_SECRET) {
+  console.error('Cloudinary configuration is missing. Please check your environment variables.');
   process.exit(1);
 }
 
@@ -94,29 +106,25 @@ const upload = multer({
   },
 });
 
-// Cloudinary upload function
-const uploadToCloudinary = (fileBuffer, fileName) => {
-  return new Promise((resolve, reject) => {
-    cloudinary.uploader.upload_stream(
-      {
-        resource_type: "image",
-        folder: "blog_images",
-        public_id: fileName,
-        transformation: [
-          { width: 1000, height: 600, crop: "limit" },
-          { quality: "auto" },
-          { fetch_format: "auto" }
-        ]
-      },
-      (error, result) => {
-        if (error) {
-          reject(error);
-        } else {
-          resolve(result);
-        }
-      }
-    ).end(fileBuffer);
-  });
+// Cloudinary upload function using v2 syntax
+const uploadToCloudinary = async (fileBuffer, fileName) => {
+  try {
+    const uploadResult = await cloudinary.uploader.upload(`data:image/jpeg;base64,${fileBuffer.toString('base64')}`, {
+      public_id: fileName,
+      folder: "blog_images",
+      resource_type: "image",
+      transformation: [
+        { width: 1000, height: 600, crop: "limit" },
+        { quality: "auto" },
+        { fetch_format: "auto" }
+      ]
+    });
+    
+    return uploadResult;
+  } catch (error) {
+    console.error('Cloudinary upload error:', error);
+    throw error;
+  }
 };
 
 // Routes
@@ -312,9 +320,10 @@ app.post("/create-post", isAuthenticated, upload.single("image"), async (req, re
     // Upload image to Cloudinary if provided
     if (imageFile) {
       try {
-        const fileName = `${Date.now()}-${Math.round(Math.random() * 1e9)}`;
+        const fileName = `blog_${Date.now()}_${Math.round(Math.random() * 1e9)}`;
         const uploadResult = await uploadToCloudinary(imageFile.buffer, fileName);
         imageUrl = uploadResult.secure_url;
+        console.log('Image uploaded successfully:', imageUrl);
       } catch (uploadError) {
         console.error("Cloudinary upload error:", uploadError);
         // Continue with default image if upload fails
