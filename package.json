@@ -16,6 +16,7 @@
     "express-session": "^1.18.2",
     "fs": "^0.0.1-security",
     "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.18.0",
     "mongoose": "^8.17.1",
     "multer": "^2.0.2",
     "path": "^0.12.7"
