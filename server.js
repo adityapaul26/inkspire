@@ -309,6 +309,7 @@ app.get("/admin/create", isAuthenticated, (req, res) => {
 app.post("/create-post", isAuthenticated, upload.single("image"), async (req, res) => {
   try {
     const { title, content } = req.body;
+    const category = req.body.category;
     const imageFile = req.file;
 
     // Get the current logged-in user
@@ -337,6 +338,7 @@ app.post("/create-post", isAuthenticated, upload.single("image"), async (req, re
       slug: await createUniqueSlug(title),
       imageUrl: imageUrl,
       author,
+      category,
       views: 0,
       status: "published"
     });

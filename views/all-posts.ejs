@@ -23,7 +23,11 @@
     <nav class="nav">
       <ul class="navButtons">
         <li><a href="/">HOME</a></li>
-        <li><a href="/create-post">CREATE POST</a></li>
+        <div class="categories">
+          <li><a href="/posts?category=All" onclick="return filterPosts('All')">All</a></li>
+          <li><a href="/posts?category=Tech" onclick="return filterPosts('Tech')">Tech</a></li>
+          <li><a href="/posts?category=Travel" onclick="return filterPosts('Travel')">Travel</a></li>
+        </div>
       </ul>
       <ul class="icon">
         <li>
@@ -61,4 +65,5 @@
   <%- include('partials/footer') %>
     <script src="../public/js/posts.js"></script>
 </body>
+
 </html>

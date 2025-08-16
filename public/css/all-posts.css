@@ -79,7 +79,14 @@ body {
   /* border: 2px solid red; */
   padding: 30px;
 }
+.categories{
+  display: flex;
+}
 
+.categories li a{
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-style: italic;
+}
 .navButtons {
   /* border: 2px solid green; */
   display: flex;
