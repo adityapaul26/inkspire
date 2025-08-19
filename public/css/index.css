@@ -1,6 +1,6 @@
 @import url(fontawesome-all.min.css);
 @import url("https://fonts.googleapis.com/css?family=Merriweather:300,700,300italic,700italic|Source+Sans+Pro:900");
-
+@import url('https://fonts.googleapis.com/css2?family=Chela+One&family=Dancing+Script:wght@400..700&family=Edu+NSW+ACT+Cursive:wght@400..700&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Shadows+Into+Light&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -18,7 +18,17 @@ html {
 
 .log {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px;
+  padding: 10px;
+}
+
+.log h1{
+  color:#ffffff;
+  font-size: 60px;
+  font-family: "Dancing Script", cursive;
+  padding-left: 20px;
 }
 
 .brandLogo {
@@ -128,10 +138,22 @@ html {
 }
 
 .navButtons li {
+  cursor: pointer;
   font-family: "Source Sans Pro", Helvetica, sans-serif;
   font-size: 13px;
   /* border: 2px solid red; */
   padding: 30px;
+  transition: all ease-in-out 0.2s;
+}
+
+.navButtons li:hover{
+  
+    /* border: 2px solid red; */
+    font-size: 13px;
+    transform: scale(1.1);
+    background-color: #ffffff;
+    color:#000;
+  
 }
 
 .navButtons {

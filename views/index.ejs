@@ -15,13 +15,16 @@
     <!-- Intro -->
 
     <div class="log">
-      <% if (user) { %>
-        <a class="login" href="/dashboard">Dashboard</a>
-        <a class="login" href="/logout">Logout</a>
-        <% } else { %>
-          <a class="login" href="/login">Login</a>
-          <a class="login" href="/signup">Signup</a>
-          <% } %>
+      <h1>Inkspire</h1>
+      <div>
+        <% if (user) { %>
+          <a class="login" href="/dashboard">Dashboard</a>
+          <a class="login" href="/logout">Logout</a>
+          <% } else { %>
+            <a class="login" href="/login">Login</a>
+            <a class="login" href="/signup">Signup</a>
+            <% } %>
+      </div>
     </div>
     <div id="intro">
       <div class="heading">
@@ -34,8 +37,9 @@
         Crafted with passion, shared with purpose.
       </p>
       <div class="arrowdown">
-        <button id="scrollBtn"><img width="90px" src="images/down-arrow-circle-svgrepo-com.svg" alt="downarrow" /></button>
-        
+        <button id="scrollBtn"><img width="90px" src="images/down-arrow-circle-svgrepo-com.svg"
+            alt="downarrow" /></button>
+
       </div>
       <header id="header">
         <a href="index.html" class="logo"></a>
@@ -134,7 +138,7 @@
         <% } %>
 
           <%- include('partials/footer') %>
-          <script src="js/main.js"></script>
+            <script src="js/main.js"></script>
 </body>
 
 </html>
