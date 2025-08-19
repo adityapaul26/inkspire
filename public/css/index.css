@@ -101,13 +101,16 @@ html {
 
 #header {
   font-family: "Source Sans Pro", Helvetica, sans-serif;
-  color: rgb(255, 255, 255);
+  /* color:#e5be89; */
   font-size: 36px;
   font-weight: 900;
-  border: 4.8px solid white;
+  /* border: 4.8px solid #e5be89; */
+  height:65px;
   padding: 16px 28px;
   line-height: 36px;
   letter-spacing: 7px;
+  display:flex;
+  align-items: center;
 }
 
 .nav {
