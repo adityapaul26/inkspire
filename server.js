@@ -226,13 +226,26 @@ app.get("/", async (req, res) => {
 
 // All posts route
 app.get("/posts", async (req, res) => {
-  try {
-    const posts = await Post.find({ status: "published" }).sort({ createdAt: -1 });
-    res.render("all-posts", { post: posts });
-  } catch (error) {
-    console.error("Error fetching posts:", error);
-    res.status(500).send("Internal Server Error");
+  const category = req.query.category || "All";
+
+  let query={status: 'published'};
+  if(category && category !== 'All'){
+    query.category=category;
   }
+  try{
+    const posts= await Post.find(query).sort({createdAt:-1});
+    res.render('all-posts',{post:posts,category});
+  }catch(error){
+    console.error("Error fetching posts:",error);
+    res.status(500).send("Internal server error")
+  }
+  // try {
+  //   const posts = await Post.find({ status: "published" }).sort({ createdAt: -1 });
+  //   res.render("all-posts", { post: posts });
+  // } catch (error) {
+  //   console.error("Error fetching posts:", error);
+  //   res.status(500).send("Internal Server Error");
+  // }
 });
 
 // Filter posts by author
