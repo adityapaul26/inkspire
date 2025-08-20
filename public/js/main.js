@@ -53,7 +53,7 @@ async function main(){
 main()
 document.getElementById("scrollBtn").addEventListener("click", function() {
     window.scrollTo({
-      top: 800,      // vertical position in px
+      top: 870,      // vertical position in px
       left: 0,
       behavior: "smooth" // smooth scrolling
     });

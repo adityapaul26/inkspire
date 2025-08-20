@@ -60,7 +60,7 @@ html {
 
 .login:hover {
   background: linear-gradient(135deg, #ffffff 0%, #e9ecef 100%);
-  transform: translateY(-2px);
+  transform: translateY(-10px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
   border-color: rgba(255, 255, 255, 0.5);
   color: #000;
@@ -121,6 +121,20 @@ html {
   letter-spacing: 7px;
   display:flex;
   align-items: center;
+}
+
+#scrollBtn{
+  animation: bounce 1s infinite ease-in-out;
+}
+
+/* Define the bouncing animation */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0); /* normal position */
+  }
+  50% {
+    transform: translateY(-10px); /* move up 10px */
+  }
 }
 
 .nav {

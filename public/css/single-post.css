@@ -64,6 +64,11 @@ body {
     margin: 30px auto;
     display: block;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: all ease-in-out 0.3s;
+}
+
+.post-image:hover{
+    transform: scale(1.03);
 }
 
 .post-content {

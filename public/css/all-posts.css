@@ -156,19 +156,17 @@ body {
 }
 
 .card img {
-  height: 50%;
+  height: 65%;
   width: 80%;
   margin-left: 50px;
   margin-right: 50px;
   margin-top: 50px;
+  transition: all ease-in-out 0.2s;
+  border-radius: 20px;
 }
 
-.card img {
-  height: 50%;
-  width: 80%;
-  margin-left: 50px;
-  margin-right: 50px;
-  margin-top: 50px;
+.card img:hover {
+  transform: scale(1.02) translateY(-10px);
 }
 
 .card {
@@ -200,7 +198,7 @@ body {
   border: 2px solid black;
   text-align: center;
 
-  bottom: 15%;
+  bottom: 5%;
   /* fixed distance from bottom */
   left: 50%;
   transform: translateX(-50%);
