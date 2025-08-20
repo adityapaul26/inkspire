@@ -91,7 +91,8 @@ body {
   font-style: normal;
   font-weight: 400;
   letter-spacing: 0.5px;
-  color: #d4a574; /* warm sandy brown */
+  color: #d4a574;
+  /* warm sandy brown */
   text-decoration: none;
   padding: 4px 8px;
   display: block;
@@ -106,7 +107,8 @@ body {
 }
 
 .categories li a:hover {
-  color: #f4e4bc; /* lighter cream on hover */
+  color: #f4e4bc;
+  /* lighter cream on hover */
 }
 
 .categories li a.active-category {
@@ -119,7 +121,8 @@ body {
 
 /* Alternative without !important - higher specificity */
 .categories li a.active-category:hover {
-  color: #d4a574; /* keeps same color on hover when active */
+  color: #d4a574;
+  /* keeps same color on hover when active */
 }
 
 
@@ -188,18 +191,26 @@ body {
   line-height: 28px;
 }
 
-.card-content a {
+.read-more {
   position: absolute;
   text-decoration: none;
   font-family: "Source Sans Pro", Helvetica, sans-serif;
   color: rgb(33, 41, 49);
-  margin: 20px 40px;
-  padding: 20px 40px;
+  padding: 12px 24px;
   border: 2px solid black;
   text-align: center;
-  margin: 30px;
-  top: 70%;
-  left: 30%;
+
+  bottom: 15%;
+  /* fixed distance from bottom */
+  left: 50%;
+  transform: translateX(-50%);
+  /* centers horizontally */
+  transition: all 0.3s ease;
+}
+
+.read-more:hover {
+  background: black;
+  color: #ffffff;
 }
 
 /*footer css*/
@@ -310,13 +321,10 @@ body {
   color: #ffffff;
 }
 
-.navButtons a{
+.navButtons a {
   text-decoration: none;
   color: white;
 }
-
-
-
 
 /* Responsive Design - Large Tablets and Small Laptops */
 @media (max-width: 1200px) {
@@ -343,6 +351,11 @@ body {
 
   .page-subtitle {
     font-size: 16px;
+  }
+
+  .card-content a{
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
 
@@ -417,6 +430,8 @@ body {
     left: auto;
     display: inline-block;
     margin: 20px auto;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   .footer {
@@ -498,7 +513,10 @@ body {
   .card-content a {
     padding: 15px 25px;
     font-size: 12px;
+    left: 50%;
+    transform: translateX(-50%);
   }
+
 
   .footer {
     margin-left: 10px;
@@ -558,5 +576,7 @@ body {
   .card-content a {
     padding: 12px 20px;
     font-size: 11px;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
