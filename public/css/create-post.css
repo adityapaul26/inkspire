@@ -12,7 +12,6 @@ html {
   /* or contain */
   background-position: center center;
   background-attachment: fixed;
-  /* optional: makes the background fixed on scroll */
 }
 
 body {
