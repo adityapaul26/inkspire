@@ -1,13 +1,12 @@
 @import url(fontawesome-all.min.css);
 @import url("https://fonts.googleapis.com/css?family=Merriweather:300,700,300italic,700italic|Source+Sans+Pro:900");
-
 * {
   margin: 0;
   padding: 0;
 }
 
 html {
-  background-image: url("../images/bg.jpg");
+  background-image: url("../images/create-post-bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   /* or contain */

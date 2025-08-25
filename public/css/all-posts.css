@@ -7,12 +7,12 @@
 }
 
 html {
-  background-image: url("../images/bg.jpg");
+  background-image: url("../images/download(2).png");
   background-repeat: no-repeat;
   background-size: cover;
   /* or contain */
-  background-position: center center;
-  background-attachment: fixed;
+  /* background-position: center center; */
+  /* background-attachment: fixed; */
   /* optional: makes the background fixed on scroll */
 }
 
@@ -32,7 +32,7 @@ body {
   flex-direction: column;
   align-items: center;
   padding: 80px 64px 60px 64px;
-  background: rgba(0, 0, 0, 0.4);
+  /* background: rgba(0, 0, 0, 0.4); */
 }
 
 .page-heading {
@@ -62,6 +62,7 @@ body {
 .nav {
   background-color: #464b52;
   /* border: 2px solid red; */
+  opacity:0.7;
   margin-left: 212px;
   margin-right: 212px;
   display: flex;
@@ -74,10 +75,27 @@ body {
 }
 
 .navButtons li {
+  cursor: pointer;
   font-family: "Source Sans Pro", Helvetica, sans-serif;
   font-size: 13px;
   /* border: 2px solid red; */
   padding: 30px;
+  transition: all ease-in-out 0.2s;
+}
+
+.navButtons li:hover{
+  /* border: 2px solid red; */
+  font-size: 13px;
+  transform: scale(1.07);
+  background-color: #ffffff;
+  color:#000;
+}
+
+.navButtons li a:hover{
+  font-size: 13px;
+  transform: scale(1.07);
+  background-color: #ffffff;
+  color:#000;
 }
 
 .categories {
@@ -107,7 +125,7 @@ body {
 }
 
 .categories li a:hover {
-  color: #f4e4bc;
+  color:#000;
   /* lighter cream on hover */
 }
 
@@ -151,10 +169,6 @@ body {
   grid-template-rows: 710px 710px;
 }
 
-.card {
-  border: 2px solid red;
-}
-
 .card img {
   height: 65%;
   width: 80%;
@@ -162,7 +176,9 @@ body {
   margin-right: 50px;
   margin-top: 50px;
   transition: all ease-in-out 0.2s;
-  border-radius: 20px;
+  /* border-radius: 20px; */
+  object-fit: cover; /* crops instead of squishing */
+  object-position: center; /* keep center part, can also use top/left/right */
 }
 
 .card img:hover {

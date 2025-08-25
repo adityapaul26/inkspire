@@ -1,13 +1,13 @@
 @import url(fontawesome-all.min.css);
 @import url("https://fonts.googleapis.com/css?family=Merriweather:300,700,300italic,700italic|Source+Sans+Pro:900");
-
+@import url('https://fonts.googleapis.com/css2?family=Cascadia+Code:ital,wght@0,200..700;1,200..700&family=Caveat:wght@400..700&family=Edu+NSW+ACT+Cursive&family=Italiana&family=Karla:ital,wght@0,200..800;1,200..800&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
 * {
     margin: 0;
     padding: 0;
 }
 
 html {
-    background-image: url("../images/bg.jpg");
+    background-image: url("../images/postbgbg.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -26,7 +26,7 @@ body {
 
 /* Post Content */
 .post-container {
-    background-image:url("../images/post-bg.jpg");
+    background-image:url("../images/postbg.jpg");
     margin: 50px 212px;
     padding: 60px;
     border-radius: 15px;
@@ -175,12 +175,17 @@ hr{
     justify-content: flex-end;
   }
   .createdAt{
-    font-family:Verdana, Geneva, Tahoma, sans-serif
+    font-family: "Karla", sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    font-style: italic;
   }
   .byAuthor{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: "Edu NSW ACT Cursive", cursive;
     font-size: 20px;
-    margin: 10px;
+    font-weight: 600;
+    font-style: normal;
+    margin-bottom: 5px;
   }
   
 
