@@ -1,22 +1,11 @@
 <style>
-  .footer-social img {
-    transition: filter 0.3s ease;
-  }
-
-  .footer-social img:hover {
-    filter: invert(100%);
-  }
-  .footer{
-    margin-bottom:30vh;
-  }
-
-  /*footer css*/
+/* Footer Base Styles */
 .footer {
   background-color: #2a2f36;
   color: #ffffff;
-  margin-left: 212px;
-  margin-right: 212px;
+  margin: 0 212px;
   padding: 60px 50px 40px 50px;
+  margin-bottom: 30vh;
 }
 
 .footer-content {
@@ -46,6 +35,8 @@
 
 .footer-links ul {
   list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .footer-links li {
@@ -96,6 +87,14 @@
   color: #2a2f36;
 }
 
+.footer-social img {
+  transition: filter 0.3s ease;
+}
+
+.footer-social img:hover {
+  filter: invert(100%);
+}
+
 .footer-bottom {
   border-top: 1px solid #464b52;
   padding-top: 30px;
@@ -118,9 +117,148 @@
   color: #ffffff;
 }
 
-.navButtons a {
-  text-decoration: none;
-  color: white;
+/* Responsive Design */
+@media screen and (max-width: 1200px) {
+  .footer {
+    margin: 0 100px;
+    margin-bottom: 30vh;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .footer {
+    margin: 0 20px;
+    margin-bottom: 20vh;
+    padding: 40px 30px 30px 30px;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-bottom: 30px;
+  }
+
+  .footer-section h3 {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  .footer-about p {
+    font-size: 13px;
+    line-height: 22px;
+  }
+
+  .footer-links a,
+  .footer-contact p {
+    font-size: 13px;
+  }
+
+  .footer-social {
+    justify-content: center;
+    margin-top: 25px;
+  }
+
+  .footer-bottom {
+    padding-top: 25px;
+  }
+
+  .footer-bottom p {
+    font-size: 11px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .footer {
+    margin: 0 10px;
+    margin-bottom: 15vh;
+    padding: 30px 20px 25px 20px;
+  }
+
+  .footer-content {
+    gap: 30px;
+    margin-bottom: 25px;
+  }
+
+  .footer-section h3 {
+    font-size: 15px;
+    margin-bottom: 15px;
+  }
+
+  .footer-about p {
+    font-size: 12px;
+    line-height: 20px;
+    margin-bottom: 15px;
+  }
+
+  .footer-links a,
+  .footer-contact p {
+    font-size: 12px;
+  }
+
+  .footer-links li {
+    margin-bottom: 10px;
+  }
+
+  .footer-social a {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+
+  .footer-bottom {
+    padding-top: 20px;
+  }
+
+  .footer-bottom p {
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .footer {
+    margin: 0 5px;
+    margin-bottom: 10vh;
+    padding: 25px 15px 20px 15px;
+  }
+
+  .footer-content {
+    gap: 25px;
+    margin-bottom: 20px;
+  }
+
+  .footer-section h3 {
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+
+  .footer-about p {
+    font-size: 11px;
+    line-height: 18px;
+    margin-bottom: 12px;
+  }
+
+  .footer-links a,
+  .footer-contact p {
+    font-size: 11px;
+  }
+
+  .footer-links li {
+    margin-bottom: 8px;
+  }
+
+  .footer-social a {
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+  }
+
+  .footer-bottom {
+    padding-top: 15px;
+  }
+
+  .footer-bottom p {
+    font-size: 9px;
+  }
 }
 </style>
 
@@ -129,12 +267,12 @@
     <div class="footer-section footer-about">
       <h3>About Inkspire</h3>
       <p>
-        Inkspire is more than just a blog — it’s your personal stage for ideas,
+        Inkspire is more than just a blog — it's your personal stage for ideas,
         stories, and creativity to shine.
       </p>
       <p>
         Perfect for bloggers, storytellers, and creative minds, Inkspire transforms
-        every post into an immersive experience. Whether you’re penning heartfelt
+        every post into an immersive experience. Whether you're penning heartfelt
         essays, showcasing your artistry, or sharing fresh perspectives, this is
         where your voice truly comes alive.
       </p>
@@ -160,7 +298,7 @@
         /></a>
         <a href="https://github.com/adityapaul26/inkspire"
           ><img width="20px" src="images/github-svgrepo-com.svg" alt="GitHub"
-        style="hover{filter:invert(100%)}"/></a>
+        /></a>
       </div>
     </div>
 

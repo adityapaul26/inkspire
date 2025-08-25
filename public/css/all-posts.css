@@ -326,7 +326,7 @@ body {
     transform: translateX(-50%);
   }
 
-  .footer {
+  /* .footer {
     margin-left: 20px;
     margin-right: 20px;
     padding: 40px 30px 30px 30px;
@@ -335,7 +335,7 @@ body {
   .footer-content {
     grid-template-columns: 1fr;
     gap: 40px;
-  }
+  } */
 }
 
 /* Responsive Design - Mobile Phones */
@@ -410,7 +410,7 @@ body {
   }
 
 
-  .footer {
+  /* .footer {
     margin-left: 10px;
     margin-right: 10px;
     padding: 30px 20px 20px 20px;
@@ -432,7 +432,7 @@ body {
     width: 30px;
     height: 30px;
     font-size: 14px;
-  }
+  } */
 }
 
 /* Responsive Design - Small Mobile Phones */
