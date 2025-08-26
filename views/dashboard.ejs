@@ -48,6 +48,8 @@
       <!-- Posts Table -->
       <div class="posts-section">
         <h2>Recent Posts</h2>
+        
+        <!-- Desktop/Tablet Table View -->
         <table class="posts-table">
           <thead>
             <tr>
@@ -70,7 +72,7 @@
                     <%= posts[i].content.split(" ").slice(0, 10).join(" ") %>...
                   </div>
                 </td>
-                <td><span class=" status published">
+                <td><span class="status published">
                       <%= posts[i].status %></span>
                 </td>
                 <td>
@@ -82,7 +84,7 @@
                 <td>
                   <div class="action-buttons">
                     <a href="/admin/edit/1" class="btn btn-edit">Edit</a>
-                    <a href=" /post/<%=posts[i].slug %>" class="btn btn-view">View</a>
+                    <a href="/post/<%=posts[i].slug %>" class="btn btn-view">View</a>
                     <button class="btn btn-delete" onclick="deletePost(1)">
                       Delete
                     </button>
@@ -92,6 +94,44 @@
               <% } %>
           </tbody>
         </table>
+
+        <!-- Mobile Card View -->
+        <div class="posts-mobile-container">
+          <% for (let i=0; i < posts.length; i++) { %>
+            <div class="post-card">
+              <div class="post-card-header">
+                <div class="post-card-title">
+                  <div class="post-title">
+                    <%= posts[i].title %>
+                  </div>
+                  <div class="post-excerpt">
+                    <%= posts[i].content.split(" ").slice(0, 10).join(" ") %>...
+                  </div>
+                </div>
+                <div class="post-card-status">
+                  <span class="status published">
+                    <%= posts[i].status %>
+                  </span>
+                </div>
+              </div>
+              
+              <div class="post-card-meta">
+                <div class="post-card-date">
+                  <strong>Date:</strong> <%= new Date(posts[i].createdAt).toISOString().split("T")[0] %>
+                </div>
+                <div class="post-card-views">
+                  <strong>Views:</strong> <%= posts[i].views %>
+                </div>
+              </div>
+              
+              <div class="post-card-actions">
+                <a href="/admin/edit/1" class="btn btn-edit">Edit</a>
+                <a href="/post/<%=posts[i].slug %>" class="btn btn-view">View</a>
+                <button class="btn btn-delete" onclick="deletePost(1)">Delete</button>
+              </div>
+            </div>
+          <% } %>
+        </div>
       </div>
     </div>
   </div>
