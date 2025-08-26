@@ -19,7 +19,10 @@
       <div>
         <% if (user) { %>
           <a class="login" href="/dashboard">Dashboard</a>
-          <a class="login" href="/logout">Logout</a>
+          <a class="login" href="/logout">
+            <%= user.username %>
+            <small style="font-weight: normal; text-transform: none;">logout</small>
+          </a>
           <% } else { %>
             <a class="login" href="/login">Login</a>
             <a class="login" href="/signup">Signup</a>
