@@ -191,7 +191,7 @@ html {
   margin-left: 212px;
   margin-right: 212px;
   padding: 50px;
-  background-color: #ffffff;
+  background-color: hsla(0, 13%, 82%, 0.85);
 }
 
 .post {
@@ -282,7 +282,7 @@ html {
 }
 
 .parent {
-  background-color: #ffffff;
+  background-color: hsla(0, 13%, 82%, 0.85);
   height: fit-content;
   margin-left: 212px;
   margin-right: 212px;
@@ -304,7 +304,7 @@ html {
 .card {
   position: relative;
   border: 2px solid lightgray;
-  background-color: white;
+  background-color: hsla(0, 0%, 100%, 0.7);
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);

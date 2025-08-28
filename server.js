@@ -1,11 +1,10 @@
-// server.js
 const express = require("express");
 const app = express();
 const path = require("path");
 const multer = require("multer");
 const bcrypt = require("bcryptjs");
 const session = require("express-session");
-const connectDB = require("./config/db"); // Import the function
+const connectDB = require("./config/db");
 const Post = require("./models/Post");
 const User = require("./models/User");
 const dotenv = require('dotenv');
@@ -75,7 +74,6 @@ async function createUniqueSlug(title) {
     slug = `${baseSlug}-${counter}`;
     counter++;
   }
-  
   return slug;
 }
 
@@ -126,9 +124,6 @@ const uploadToCloudinary = async (fileBuffer, fileName) => {
     throw error;
   }
 };
-
-// Routes
-
 // Signup routes
 app.get("/signup", (req, res) => {
   res.render("sign-up");
@@ -239,13 +234,6 @@ app.get("/posts", async (req, res) => {
     console.error("Error fetching posts:",error);
     res.status(500).send("Internal server error")
   }
-  // try {
-  //   const posts = await Post.find({ status: "published" }).sort({ createdAt: -1 });
-  //   res.render("all-posts", { post: posts });
-  // } catch (error) {
-  //   console.error("Error fetching posts:", error);
-  //   res.status(500).send("Internal Server Error");
-  // }
 });
 
 // Filter posts by author
