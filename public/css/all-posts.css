@@ -325,17 +325,6 @@ body {
     left: 50%;
     transform: translateX(-50%);
   }
-
-  /* .footer {
-    margin-left: 20px;
-    margin-right: 20px;
-    padding: 40px 30px 30px 30px;
-  }
-
-  .footer-content {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  } */
 }
 
 /* Responsive Design - Mobile Phones */
@@ -408,31 +397,6 @@ body {
     left: 50%;
     transform: translateX(-50%);
   }
-
-
-  /* .footer {
-    margin-left: 10px;
-    margin-right: 10px;
-    padding: 30px 20px 20px 20px;
-  }
-
-  .footer-section h3 {
-    font-size: 16px;
-  }
-
-  .footer-about p {
-    font-size: 13px;
-  }
-
-  .footer-social {
-    gap: 10px;
-  }
-
-  .footer-social a {
-    width: 30px;
-    height: 30px;
-    font-size: 14px;
-  } */
 }
 
 /* Responsive Design - Small Mobile Phones */

@@ -11,7 +11,6 @@ html {
   background-image: url("../images/download(2).png");
   background-repeat: no-repeat;
   background-size: cover;
-  /* or contain */
   /* background-position: center center; */
   background-attachment: fixed;
   /* optional: makes the background fixed on scroll */
@@ -62,7 +61,6 @@ html {
 
 .login:hover {
   background: linear-gradient(135deg, #ffffff 0%, #e9ecef 100%);
-  /* transform: translateY(-10px); */
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
   border-color: rgba(255, 255, 255, 0.5);
   color: #000;
@@ -101,17 +99,13 @@ html {
 
 #intro a {
   text-decoration: none;
-  /* removes underline */
   color: inherit;
-  /* makes link color same as parent text */
 }
 
 #header {
   font-family: "Source Sans Pro", Helvetica, sans-serif;
-  /* color:#e5be89; */
   font-size: 36px;
   font-weight: 900;
-  /* border: 4.8px solid #e5be89; */
   height:65px;
   padding: 16px 28px;
   line-height: 36px;
@@ -137,7 +131,6 @@ html {
 
 .nav {
   background-color: #464b52;
-  /* border: 2px solid red; */
   opacity:0.7;
   margin-left: 212px;
   margin-right: 212px;
@@ -154,14 +147,11 @@ html {
   cursor: pointer;
   font-family: "Source Sans Pro", Helvetica, sans-serif;
   font-size: 13px;
-  /* border: 2px solid red; */
   padding: 30px;
   transition: all ease-in-out 0.2s;
 }
 
 .navButtons li:hover{
-  
-    /* border: 2px solid red; */
     font-size: 13px;
     transform: scale(1.07);
     background-color: #ffffff;
@@ -170,7 +160,6 @@ html {
 }
 
 .navButtons {
-  /* border: 2px solid green; */
   display: flex;
   align-items: center;
   gap: 10px;
@@ -195,12 +184,9 @@ html {
 }
 
 .post {
-  /* align-items: center; */
   justify-content: center;
   gap: 20px;
-  /* more spacing between lines and date */
   padding: 10px 0;
-  /* vertical space around the whole post */
 }
 
 .date-line {
@@ -225,7 +211,6 @@ html {
   /* medium grey text */
   font-size: 16px;
   letter-spacing: 1px;
-  /* text-transform: uppercase; */
 }
 
 .post-heading {
@@ -297,8 +282,8 @@ html {
   width: 80%;
   margin: 50px auto 0 auto;
   display: block;
-  object-fit: cover; /* crops instead of squishing */
-  object-position: center; /* keep center part, can also use top/left/right */
+  object-fit: cover; 
+  object-position: center; 
 }
 
 .card {
@@ -686,30 +671,6 @@ html {
     padding: 15px 25px;
     font-size: 12px;
   }
-
-  /* .footer {
-    margin-left: 10px;
-    margin-right: 10px;
-    padding: 30px 20px 20px 20px;
-  }
-
-  .footer-section h3 {
-    font-size: 16px;
-  }
-
-  .footer-about p {
-    font-size: 13px;
-  }
-
-  .footer-social {
-    gap: 10px;
-  }
-
-  .footer-social a {
-    width: 30px;
-    height: 30px;
-    font-size: 14px;
-  } */
 
   .login {
     padding: 10px 18px;
