@@ -200,7 +200,6 @@ html {
   background-color: #ccc;
   /* light grey line */
   border-radius: 2px;
-  /* slight rounding of edges */
 }
 
 .date {
@@ -671,31 +670,6 @@ html {
     padding: 15px 25px;
     font-size: 12px;
   }
-
-  /* .footer {
-    margin-left: 10px;
-    margin-right: 10px;
-    padding: 30px 20px 20px 20px;
-  }
-
-  .footer-section h3 {
-    font-size: 16px;
-  }
-
-  .footer-about p {
-    font-size: 13px;
-  }
-
-  .footer-social {
-    gap: 10px;
-  }
-
-  .footer-social a {
-    width: 30px;
-    height: 30px;
-    font-size: 14px;
-  } */
-
   .login {
     padding: 10px 18px;
     margin: 6px;
