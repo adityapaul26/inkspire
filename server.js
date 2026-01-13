@@ -282,6 +282,28 @@ app.get("/my-posts", async (req, res) => {
   }
 });
 
+// Delete post route
+app.post("/post/delete/:id", isAuthenticated, async (req, res) => {
+  try {
+    const post = await Post.findById(req.params.id);
+
+    if (!post) {
+      return res.status(404).send("Post not found");
+    }
+
+    // Check if current user is the author
+    if (post.author !== req.session.user.username) {
+      return res.status(403).send("You are not authorized to delete this post");
+    }
+
+    await Post.findByIdAndDelete(req.params.id);
+    res.redirect("/dashboard");
+  } catch (error) {
+    console.error("Error deleting post:", error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
 // Dashboard route
 app.get("/dashboard", isAuthenticated, async (req, res) => {
   const user = req.session.user || null;
